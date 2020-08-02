@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-twenty_questions = {editable = true, path = "."}
+twenty_questions = {editable = true,path = "."}
 
 [dev-packages]
 "pytest-cov" = "*"
@@ -12,6 +12,7 @@ pytest = "*"
 mypy = "*"
 radon = "*"
 pycodestyle = "*"
+pylint = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
