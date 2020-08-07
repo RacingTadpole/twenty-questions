@@ -14,10 +14,7 @@ question1 = Question(text='Is it an animal?', yes=question2, no=cactus)
 
 next = question1
 
-while True:
-    if isinstance(next, Answer):
-        print('It is a ' + next.text + '!')
-        break
+while isinstance(next, Question):
     yes_or_no = input(next.text + ' ')
     if yes_or_no == 'y':
         next = next.yes
@@ -25,3 +22,5 @@ while True:
         next = next.no
     else:
         print('Please only respond y or n.')
+
+print('It is a ' + next.text + '!')
