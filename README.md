@@ -4,9 +4,9 @@ A fun project to teach programming in python.
 
 ## Quick start
 
-### Install PyCharm or equivalent
+### Install Visual Studio Code
 
-Install PyCharm or a similar editor. A vanilla text editor is fine too.
+Install Visual Studio Code, PyCharm or a similar editor.
 
 ### Install Python and pipenv
 

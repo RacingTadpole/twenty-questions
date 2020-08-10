@@ -13,6 +13,8 @@ mypy = "*"
 radon = "*"
 pycodestyle = "*"
 pylint = "*"
+jupyterlab = "*"
+mkdocs = "*"
 
 [requires]
 python_version = "3.8"
