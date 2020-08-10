@@ -54,6 +54,10 @@
             
             <li class="nav-item" data-level="1"><a href="#lesson-4-for-loops" class="nav-link">Lesson 4: For loops</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#a-little-trick" class="nav-link">A little trick</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -61,7 +65,45 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="lesson-4-for-loops">Lesson 4: For loops</h1></div>
+<h1 id="lesson-4-for-loops">Lesson 4: For loops</h1>
+<p>What do you think this will do?</p>
+<pre><code class="python">for x in [1, 2, 3, 5, 8]:
+    print(x)
+</code></pre>
+
+<p>It loops through the list and prints each element.</p>
+<p>You can do stuff to the element too:</p>
+<pre><code class="python">for x in [1, 2, 3, 5, 8]:
+    print(x * 2 + 3)
+</code></pre>
+
+<p>And you can put the list in a variable too:</p>
+<pre><code class="python">a = [1, 2, 3, 5, 8]
+for x in a:
+    print(x)
+</code></pre>
+
+<p>We've been using single letters for variables but you can use words.
+You just can't put spaces in the words, but we can use "_".</p>
+<pre><code class="python">numbers = [1, 2, 3, 5, 8]
+for x in numbers:
+    print(x)
+</code></pre>
+
+<p>or even</p>
+<pre><code class="python">my_numbers = [1, 2, 3, 5, 8]
+for number in my_numbers:
+    print(number)
+</code></pre>
+
+<p>How would you write a loop to show the squares of the numbers above?</p>
+<h2 id="a-little-trick">A little trick</h2>
+<p>One nice thing about Python is this little trick - you can bring the <code>for</code>
+"inside" the list like this:</p>
+<pre><code class="python">a = [1, 2, 3, 5, 8]
+b = [x * 2 for x in a]
+print(b)
+</code></pre></div>
             </div>
         </div>
 

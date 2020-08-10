@@ -65,29 +65,36 @@
 <p>What do you think this would do?</p>
 <pre><code class="python">print('Welcome to Twenty Questions')
 print('Please think of an animal or plant, and I will try to guess what it is by asking questions.')
-print('Please answer questions with &quot;y&quot; or &quot;n&quot;')
+print('Please answer questions with &quot;yes&quot; or &quot;no')
 print()
 
 x = input('Does your animal fly? ')
-print('You said '+x)
-if x == 'y':
+print('You said: ' + x)
+
+if x == 'yes':
+    print('Great!')
     print('I think your animal is a fruit bat.')
-if x == 'n':
+if x == 'no':
+    print('Aha!')
     print('I think your animal is a wombat.')
 </code></pre>
 
-<p>Notice the colon where you might think the word "then" should be
-(that's just a python thing, some other computer languages actually use "then").</p>
-<p>And notice the indenting to show what falls under the "if".</p>
+<p>Notice the double equals signs <code>==</code> that "if" uses to check if <code>x</code> equals <code>'yes'</code>.
+Programmers use a double equals sign to ask a question about whether
+the two things are equal. (Does <code>x</code> equal <code>'yes'</code>?)</p>
+<p>In contrast, the single equals sign in <code>x = input('Does your animal fly? ')</code>
+actually <em>changes</em> <code>x</code> to "make it equal to" what the person types in.</p>
+<p>Also notice instead of saying "then", there's a colon, and the stuff after it
+has been indented.</p>
 <p>If that's too easy, what about this one?</p>
 <pre><code class="python">x = input('Does your animal fly? ')
-if x == 'y':
+if x == 'yes':
     xy = input('Is your flying animal a bird? ')
-    if xy == 'y':
+    if xy == 'yes':
         print('I think your animal is a pelican.')
-    if xy == 'n':
+    if xy == 'no':
         print('I think your animal is a fruit bat.')
-if x == 'n':
+if x == 'no':
     print('I think your animal is a wombat.')
 </code></pre>
 

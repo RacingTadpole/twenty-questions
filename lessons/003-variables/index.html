@@ -54,6 +54,22 @@
             
             <li class="nav-item" data-level="1"><a href="#lesson-3-more-about-variables" class="nav-link">Lesson 3: More about Variables</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#string-variables" class="nav-link">String variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#numeric-variables" class="nav-link">Numeric variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#truefalse-variables" class="nav-link">True/False variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#lists" class="nav-link">Lists</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -70,10 +86,55 @@ print('Hello ' + x + '!')
 </code></pre>
 
 <p>Programmers call <code>q</code> and <code>x</code> "variables", because they can vary.</p>
-<p>These variables are "strings" - they contain text. (Remember programmers
-call text "strings" for some reason.)</p>
+<h2 id="string-variables">String variables</h2>
+<p>These particular variables are "strings" - they contain text.
+(Remember programmers call text "strings" for some reason.)</p>
 <p>Variables can be other types of things too.</p>
-<p>In order to do maths, you might expect numbers, and these are called "integers" (for whole numbers) and "floats" (for decimal numbers - the word "float" was picked originally because the computer stores them in a way that lets the decimal place "float" a long way to the left or right).</p></div>
+<h2 id="numeric-variables">Numeric variables</h2>
+<p>In order to do maths, you might expect numbers, and these are called "integers" (for whole numbers) or "floats" (for decimal numbers - the word "float" was picked originally because the computer stores them in a way that lets the decimal place "float" a long way to the left or right).</p>
+<pre><code class="python">n = 10
+print(n)
+print(n + 5)
+print(n / 2)
+print(n * 3)
+
+k = n * 3 + 1
+print(k)
+
+x = k / 10
+print(x)
+</code></pre>
+
+<p>Etc.</p>
+<p>You can ask if a variable is a string (<code>str</code>), an integer (<code>int</code>) or a float (<code>float</code>) using <code>isinstance</code> like this:</p>
+<pre><code class="python">n = 10
+print(isinstance(n, int))
+print(isinstance(n, str))
+</code></pre>
+
+<p>which returns <code>True</code> or <code>False</code>.
+In fact these responses are another type of variable, which can only be
+True or False. Such variables are named "boolean" (<code>bool</code>) after George Boole, an 1800s mathematician, for some reason, although the idea of true and false must be older than that.</p>
+<h2 id="truefalse-variables">True/False variables</h2>
+<pre><code class="python">a = True
+print(a)
+
+x = 'yes'
+print(x == 'yes')
+</code></pre>
+
+<p>Notice the double equals sign gives us a True or False too.
+If you think about it, that makes sense for using with "if", right?
+If something is true, do something; if it's false, do something else.</p>
+<h2 id="lists">Lists</h2>
+<p>Let's talk about one more, fancier type of variable - a list, eg.</p>
+<pre><code class="python">x = [1, 3, 4, 7, 'hello']
+print(x)
+
+print(isinstance(x, list))
+</code></pre>
+
+<p>This will be handy in our next lesson, on loops.</p></div>
             </div>
         </div>
 

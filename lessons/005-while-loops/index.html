@@ -62,12 +62,25 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="lesson-5-while-loops">Lesson 5: While Loops</h1>
-<pre><code class="python">x = 0
-while x &lt; 10:
-    y = input('say a number')
-    x = int(y)
+<p>You can also write loops with <code>while</code>.</p>
+<p>The example below keeps asking you to type something until you type "stop".</p>
+<p>Note that <code>!=</code> means "does not equal", so the loop keeps going "while <code>x</code> does not equal 'stop'". As soon as it does, the computer leaves the indented section.</p>
+<pre><code class="python">x = 'ok'
+while x != 'stop':
+    x = input('Type anything, or &quot;stop&quot; to stop: ')
+    print('You typed: ' + x)
+print('Finally!')
 </code></pre>
 
+<p>The example below keeps asking for a number until you give it one above 10.</p>
+<pre><code class="python">x = 0
+while x &lt; 11:
+    y = input('Give me a number: ')
+    x = int(y)
+print('Finally, a number above 10!')
+</code></pre>
+
+<p>Notice how we use <code>int</code> here to convert a "string" input to a whole number.</p>
 <p>Now you understand variables, "if"s and loops, you basically understand programming!</p></div>
             </div>
         </div>
