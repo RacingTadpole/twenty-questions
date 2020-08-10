@@ -1,51 +1,21 @@
 # Learn To Program in Python
 
-## Lesson 1: Print and Input
+We are going to write a text game where you think of an animal,
+and the program asks questions to try and guess what it is.
 
-See if you can guess what this program will do:
+The program will not be a very good guesser at first, but it will learn new
+animals the more you play it.
 
-```python
-print('Hello!')
-```
+These lessons came out of teaching my 13-year-old son to program in Python,
+and I hope they may be useful for you too.
 
-How about this program?
+Installing everything you need is probably the hardest part.
+If you can do that, the lessons should be a breeze :-) .
 
-```python
-print('Hello!')
-input('What is your name? ')
-```
+Part 1
 
-What if you want to do something with the name the person types in? How about this:
-
-```python
-x = input('What is your name? ')
-print('Hello ' + x + '!')
-```
-
-Notice how `+` "adds" the parts of the sentence together? Programmers call text like this "strings" for some reason.
-
-What do you think the next program would do?
-
-```python
-q = 'What is your name? '
-x = input(q)
-print('Hello ' + x + '!')
-```
-
-
-## Lesson 2: If
-
-## Lesson 3: More Variables
-
-Xyz.
-
-## Lesson 4: For Loops
-
-## Lesson 5: While Loops
-
-```python
-x = 0
-while x < 10:
-    y = input('say a number')
-    x = int(y)
-```
+- [Lesson 1: Print and Input](lessons/001-print-and-input.md)
+- [Lesson 2: If](lessons/002-if.md)
+- [Lesson 3: More about Variables](lessons/003-variables.md)
+- [Lesson 4: For Loops](lessons/004-for-loops.md)
+- [Lesson 5: While Loops](lessons/005-while-loops.md)
