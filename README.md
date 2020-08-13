@@ -1,6 +1,6 @@
 # Twenty Questions
 
-A fun project to teach programming in python. See the lessons at https://racingtadpole.github.io/twenty_questions/.
+A fun project to teach programming in python. See the lessons at https://racingtadpole.github.io/twenty-questions/.
 
 ## Quick start
 
