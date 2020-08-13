@@ -2,9 +2,10 @@
 
 You can also write loops with `while`.
 
-The example below keeps asking you to type something until you type "stop".
+This gives you more flexibility, eg. you don't have to know how long the loop will go for
+before you start.
 
-Note that `!=` means "does not equal", so the loop keeps going "while `x` does not equal 'stop'". As soon as it does, the computer leaves the indented section.
+The example below keeps asking you to type something until you type "stop".
 
 ```python
 x = 'ok'
@@ -14,16 +15,15 @@ while x != 'stop':
 print('Finally!')
 ```
 
-The example below keeps asking for a number until you give it one above 10.
+Note that `!=` means "does not equal", so the loop keeps going "while `x` does not equal 'stop'". As soon as it does, the computer leaves the indented section.
+
+You could write the `for` loop from the last section using `while` like this:
 
 ```python
-x = 0
-while x < 11:
-    y = input('Give me a number: ')
-    x = int(y)
-print('Finally, a number above 10!')
+a = [1, 2, 3, 5, 8]
+i = 0
+while i < len(a):
+    print(a[i])
 ```
 
-Notice how we use `int` here to convert a "string" input to a whole number.
-
-Now you understand variables, "if"s and loops, you basically understand programming!
+Now you understand variables, "if"s and loops, we can get back to our game!

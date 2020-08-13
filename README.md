@@ -4,6 +4,8 @@ A fun project to teach programming in python. See the lessons at https://racingt
 
 ## Quick start
 
+If you get stuck doing this, you can search for an online python interpreter and use it, eg. https://repl.it/languages/Python3.
+
 ### Install Visual Studio Code
 
 Install Visual Studio Code, PyCharm or a similar editor.

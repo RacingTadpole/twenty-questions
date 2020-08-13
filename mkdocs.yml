@@ -1,3 +1,10 @@
 site_name: Learn Python with A Twenty Questions Game
 nav:
     - Home: index.md
+    - Lessons:
+        - lessons/001-print-and-input.md
+        - lessons/002-if.md
+        - lessons/003-variables.md
+        - lessons/004-for-loops.md
+        - lessons/005-while-loops.md
+        - lessons/006-game-loop-ideas.md

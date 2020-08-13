@@ -19,3 +19,4 @@ Part 1
 - [Lesson 3: More about Variables](lessons/003-variables.md)
 - [Lesson 4: For Loops](lessons/004-for-loops.md)
 - [Lesson 5: While Loops](lessons/005-while-loops.md)
+- [Lesson 6: Game Loop Ideas](lessons/006-game-loop-ideas.md)

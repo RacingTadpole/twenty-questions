@@ -70,8 +70,21 @@ Let's talk about one more, fancier type of variable - a list, eg.
 ```python
 x = [1, 3, 4, 7, 'hello']
 print(x)
-
-print(isinstance(x, list))
+print(x[1])
+print(len(x))
 ```
 
 This will be handy in our next lesson, on loops.
+
+Notice how we got an element out of the list with `x[1]` - was it the one you expected?
+(Python starts counting at 0!) - and the length of the list with `len(x)`
+(the length is still what you'd expect, fortunately).
+
+Do you think you can put a list inside a list? Try it!
+
+```python
+x = [[1, 'hello'], [2, 'goodbye'], [3, 'the end']]
+print(x)
+print(x[2])
+print(x[2][1])
+```
