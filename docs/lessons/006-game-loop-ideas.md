@@ -18,7 +18,7 @@ for question in questions:
 print('Thanks for playing.')
 ```
 
-It asks all the questions ok, but it asks them _all_ and ignores the answers!
+It asks all the questions ok, but it asks them _all_ and ignores the answers.
 
 ## Idea 2: While
 
@@ -38,13 +38,15 @@ while i < len(questions):
 
 Now the questions depend on the answers - but not in a very sensible way.
 
-## Idea 3: List of lists
+## Idea 3: Choose your own adventure
 
 What we need is, for each question, a way to say which question comes next when you answer no,
 and which question comes next when you answer yes.
 
 Here's an idea: for each question, replace it with the question, its number, and the question
 numbers to go to when you answer yes and no.
+
+You can think of the question numbers like the page numbers in a "Choose your own Adventure" book.
 
 ```python
 data = [
@@ -63,7 +65,6 @@ data = [
 ```
 
 See if you can trace through in your mind how the questions and answers are linked.
-It's just like a choose your own adventure!
 
 Notice what we did when there are no more questions to ask - we just left off the last two numbers.
 
@@ -73,7 +74,30 @@ you are asked "is it a fruit bat?" (number 4) - and there are no more questions 
 
 The first column is really just there to help us humans.
 
-How can we write a loop for this? Here's one way you could do it.
+How can we write a loop for this? Try and write one yourself. You might want to start
+by choosing a variable name for the "current" question number. And we don't really know
+what should stop the "while" loop yet, so you could write it for now as `while True:`,
+which will go forever (or until there's an error).
+
+Here's a first pass, that doesn't fully work yet.
+
+```python
+i = 0
+while True:
+    question = data[i][1]
+    yes_number = data[i][2]
+    no_number = data[i][3]
+    x = input(question)
+    if x == 'y':
+        i = yes_number
+    if x == 'n':
+        i = no_number
+```
+
+That almost works, but it fails when there are no page numbers to go to (which happens when it
+gets to the end).
+
+Here's one way you could fix that.
 
 ```python
 i = 0
