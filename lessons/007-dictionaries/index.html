@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Lesson 6: Game Loop Ideas - Learn Python with A Twenty Questions Game</title>
+        <title>Lesson 7: Dictionaries - Learn Python with A Twenty Questions Game</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -61,11 +61,11 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Lesson 6: Game Loop Ideas</a>
+    <a href="../006-game-loop-ideas/" class="dropdown-item">Lesson 6: Game Loop Ideas</a>
 </li>
                                     
 <li>
-    <a href="../007-dictionaries/" class="dropdown-item">Lesson 7: Dictionaries</a>
+    <a href="./" class="dropdown-item active">Lesson 7: Dictionaries</a>
 </li>
                                     
 <li>
@@ -82,12 +82,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../005-while-loops/" class="nav-link">
+                                <a rel="prev" href="../006-game-loop-ideas/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../007-dictionaries/" class="nav-link">
+                                <a rel="next" href="../008-data-classes/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -109,20 +109,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#lesson-6-game-loop-ideas" class="nav-link">Lesson 6: Game Loop Ideas</a>
+            <li class="nav-item" data-level="1"><a href="#lesson-7-dictionaries" class="nav-link">Lesson 7: Dictionaries</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#idea-1-for" class="nav-link">Idea 1: For</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#idea-2-while" class="nav-link">Idea 2: While</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#idea-3-choose-your-own-adventure" class="nav-link">Idea 3: Choose your own adventure</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -130,109 +118,77 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="lesson-6-game-loop-ideas">Lesson 6: Game Loop Ideas</h1>
-<p>At the end of lesson 2 we had a version of our game already, with lots of <code>if</code>s -
-but it was hard to add new animals to it.</p>
-<h2 id="idea-1-for">Idea 1: For</h2>
-<p>So, we want to put it in a loop somehow. Let's start with a <code>for</code> loop - what would this do?</p>
-<pre><code class="python">questions = [
-    'Is it blue?',
-    'Is it bigger than a football?',
-    'Is it a mammal?',
-    'Does it fly?',
-]
-for question in questions:
-    x = input(question + ' ')
-print('Thanks for playing.')
+<h1 id="lesson-7-dictionaries">Lesson 7: Dictionaries</h1>
+<p>That worked but lines like this are hard to read, don't you think?</p>
+<pre><code class="python">    question = info[1]
+    yes_number = info[2]
+    no_number = info[3]
 </code></pre>
 
-<p>It asks all the questions ok, but it asks them <em>all</em> and ignores the answers.</p>
-<h2 id="idea-2-while">Idea 2: While</h2>
-<p>This looks like a job for a <code>while</code> loop.</p>
-<p>With the same <code>questions</code> as above, let's try:</p>
-<pre><code class="python">i = 0
-while i &lt; len(questions):
-    x = input(questions[i] + ' ')
-    if x == 'n':
-        i = i + 1
-    if x == 'y':
-        i = i + 2
+<p>Wouldn't something like this be nicer and less error-prone?</p>
+<pre><code class="python">    question = info['question']
+    yes_number = info['yes']
+    no_number = info['no']
 </code></pre>
 
-<p>Now the questions depend on the answers - but not in a very sensible way.</p>
-<h2 id="idea-3-choose-your-own-adventure">Idea 3: Choose your own adventure</h2>
-<p>What we need is, for each question, a way to say which question comes next when you answer no,
-and which question comes next when you answer yes.</p>
-<p>Here's an idea: for each question, replace it with the question, its number, and the question
-numbers to go to when you answer yes and no.</p>
-<p>You can think of the question numbers like the page numbers in a "Choose your own Adventure" book.</p>
+<p>Python lets us do this. Instead of putting our question info into a list like this:</p>
+<pre><code class="python">    [0, 'Does your animal fly?', 1, 2]
+</code></pre>
+
+<p>you can name each part like this:</p>
+<pre><code class="python">    {'number': 0, 'question': 'Does your animal fly?', 'yes': 1, 'no': 2}
+</code></pre>
+
+<p>This is called a dictionary. It uses <code>{}</code> instead of <code>[]</code>. </p>
+<p>You can think of it as a bunch of "keys" (like <code>question</code>)
+and "values" (like <code>'Does your animal fly?</code>).</p>
+<p>While we're at it, why don't we change the way we write the answers too?</p>
+<pre><code class="python">    {'number': 4, 'answer': 'fruit bat'},
+</code></pre>
+
+<p>Try rewriting your code from the last lesson to use this structure.</p>
+<p>If you want to test if a particular key is in the dictionary, you can use <code>in</code>, eg.</p>
+<pre><code class="python">info = {'number': 4, 'answer': 'fruit bat'}
+print('question' in info)  # False
+print('answer' in info)  # True
+</code></pre>
+
+<p>Here's the same list we had before, in the new format:</p>
 <pre><code class="python">data = [
-    [0, 'Does your animal fly?', 1, 2],
-    [1, 'Is your flying animal a bird?', 3, 4],
-    [2, 'Does your animal live underwater?', 7, 8],
-    [3, 'Is your bird native to Australia?', 5, 6],
-    [4, 'Is it a fruit bat?'],
-    [5, 'Is it a kookaburra?'],
-    [6, 'Is it a blue jay?'],
-    [7, 'Is your animal a mammal?', 9, 10],
-    [8, 'Is it a wombat?'],
-    [9, 'Is it a blue whale?'],
-    [10, 'Is it a goldfish?'],
+    {'number': 0, 'question': 'Does your animal fly?', 'yes': 1, 'no': 2},
+    {'number': 1, 'question': 'Is your flying animal a bird?', 'yes': 3, 'no': 4},
+    {'number': 2, 'question': 'Does your animal live underwater?', 'yes': 7, 'no': 8},
+    {'number': 3, 'question': 'Is your bird native to Australia?', 'yes': 5, 'no': 6},
+    {'number': 4, 'answer': 'fruit bat'},
+    {'number': 5, 'answer': 'kookaburra'},
+    {'number': 6, 'answer': 'blue jay'},
+    {'number': 7, 'question': 'Is your animal a mammal?', 'yes': 9, 'no': 10},
+    {'number': 8, 'answer': 'wombat'},
+    {'number': 9, 'answer': 'blue whale'},
+    {'number': 10, 'answer': 'goldfish'},
 ]
 </code></pre>
 
-<p>See if you can trace through in your mind how the questions and answers are linked.</p>
-<p>Notice what we did when there are no more questions to ask - we just left off the last two numbers.</p>
-<p>If you say yes, the animal does fly (question number 0),
-then you are asked if it's a bird (question number 1); if you say no to that,
-you are asked "is it a fruit bat?" (number 4) - and there are no more questions after that.</p>
-<p>The first column is really just there to help us humans.</p>
-<p>How can we write a loop for this? Try and write one yourself. You might want to start
-by choosing a variable name for the "current" question number. And we don't really know
-what should stop the "while" loop yet, so you could write it for now as <code>while True:</code>,
-which will go forever (or until there's an error).</p>
-<p>Here's a first pass, that doesn't fully work yet.</p>
+<p>Here's one way you could do it:</p>
 <pre><code class="python">i = 0
 while True:
-    question = data[i][1]
-    yes_number = data[i][2]
-    no_number = data[i][3]
-    x = input(question)
-    if x == 'y':
-        i = yes_number
-    if x == 'n':
-        i = no_number
-</code></pre>
-
-<p>That almost works, but it fails when there are no page numbers to go to (which happens when it
-gets to the end).</p>
-<p>Here's one way you could fix that.</p>
-<pre><code class="python">i = 0
-while i &gt;= 0:
     info = data[i]
-    question = info[1]
-    x = input(question + ' ')
-    if len(info) == 2:
-        # There are no more questions
+    if 'question' in info:
+        question = info['question']
+        x = input(question + ' ')
+        if x == 'y':
+            i = info['yes']
+        if x == 'n':
+            i = info['no']
+    else:
+        answer = info['answer']
+        x = input('Is it a ' + answer + '? ')
         if x == 'y':
             print('Wow, I guessed it!')
         if x == 'n':
             print('You beat me!')
-        i = -1
-    else:
-        # Go to the next question
-        if x == 'y':
-            i = info[2]
-        if x == 'n':
-            i = info[3]
-</code></pre>
-
-<p>Notice when we got to an answer, we set <code>i = -1</code> - so our while loop should continue only
-when <code>i &gt;= 0</code>. </p>
-<p>Another way you could do it is to use <code>break</code> to get out of the while loop - then you could still
-use <code>while True:</code>.</p>
-<p>You might be able to come up with other ways to do this.</p>
-<p>It's a little fiddly to write the questions now, but it works!</p></div>
+        break
+</code></pre></div>
             </div>
         </div>
 
