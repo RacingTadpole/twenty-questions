@@ -20,3 +20,5 @@ Part 1
 - [Lesson 4: For Loops](lessons/004-for-loops.md)
 - [Lesson 5: While Loops](lessons/005-while-loops.md)
 - [Lesson 6: Game Loop Ideas](lessons/006-game-loop-ideas.md)
+- [Lesson 7: Dictionaries](lessons/007-dictionaries.md)
+- [Lesson 8: Data classes](lessons/008-data-classes.md)

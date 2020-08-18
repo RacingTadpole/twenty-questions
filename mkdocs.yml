@@ -8,3 +8,5 @@ nav:
         - lessons/004-for-loops.md
         - lessons/005-while-loops.md
         - lessons/006-game-loop-ideas.md
+        - lessons/007-dictionaries.md
+        - lessons/008-data-classes.md

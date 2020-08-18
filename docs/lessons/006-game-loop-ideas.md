@@ -121,6 +121,11 @@ while i >= 0:
 ```
 
 Notice when we got to an answer, we set `i = -1` - so our while loop should continue only
-when `i >= 0`. You might be able to come up with other ways to do this.
+when `i >= 0`. 
+
+Another way you could do it is to use `break` to get out of the while loop - then you could still
+use `while True:`.
+
+You might be able to come up with other ways to do this.
 
 It's a little fiddly to write the questions now, but it works!
