@@ -115,7 +115,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#second-pass" class="nav-link">Second pass</a>
+            <li class="nav-item" data-level="2"><a href="#drop-the-numbers" class="nav-link">Drop the numbers</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -177,7 +177,7 @@ print(q)
 print(isinstance(q, Question))
 </code></pre>
 
-<h2 id="second-pass">Second pass</h2>
+<h2 id="drop-the-numbers">Drop the numbers</h2>
 <p>Why are we using numbers to refer to questions and answers?
 Let's just point to them directly, and write our questions out in a tree, like this:</p>
 <pre><code class="python">from dataclasses import dataclass
@@ -193,7 +193,7 @@ class Question:
     yes: Union['Question', Answer]
     no: Union['Question', Answer]
 
-q = Question(
+first = Question(
     'Does your animal fly?',
     yes=Question(
         'Is your flying animal a bird?',
@@ -215,8 +215,10 @@ q = Question(
 )
 </code></pre>
 
+<p>Note our "data" list has disappeared, and now we just have a question which contains
+all the other questions and answers.</p>
 <p>The loop is very straightforward now:</p>
-<pre><code class="python">    current = q
+<pre><code class="python">    current = first
     while isinstance(current, Question):
         x = input(current.text + ' ')
         if x == 'y':
@@ -224,7 +226,7 @@ q = Question(
         if x == 'n':
             current = current.no
 
-    x = input('Is it a ' + answer + '? ')
+    x = input('Is it a ' + current.text + '? ')
     if x == 'y':
         print('Wow, I guessed it!')
     if x == 'n':

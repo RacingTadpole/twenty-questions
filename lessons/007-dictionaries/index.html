@@ -111,6 +111,14 @@
             
             <li class="nav-item" data-level="1"><a href="#lesson-7-dictionaries" class="nav-link">Lesson 7: Dictionaries</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#a-simpler-example" class="nav-link">A simpler example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#questions-and-answers" class="nav-link">Questions and Answers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -142,17 +150,35 @@
 <p>This is called a dictionary. It uses <code>{}</code> instead of <code>[]</code>. </p>
 <p>You can think of it as a bunch of "keys" (like <code>question</code>)
 and "values" (like <code>'Does your animal fly?</code>).</p>
+<h2 id="a-simpler-example">A simpler example</h2>
+<p>You can see how dictionaries work here:</p>
+<pre><code class="python">    ages = {'Jack': 13, 'Olivia': 15, 'Robert': 48, 'Jess': 47}
+
+    print ('Jack is', ages['Jack'])
+    print()
+
+    for name in ages:
+        print(name, 'is', ages[name])
+
+    print()
+    name = input('Enter a name: ')
+    print(name, 'is', ages[name])
+</code></pre>
+
+<p>The only trick here is that the <code>for</code> loop loops over the <em>keys</em> of the dictionary.</p>
+<p>If you want to test if a particular key is in the dictionary, you can use <code>in</code>, eg.</p>
+<pre><code class="python">    ages = {'Jack': 13, 'Olivia': 15, 'Robert': 48, 'Jess': 47}
+
+    print('Ella' in info)  # False
+    print('Jack' in info)  # True
+</code></pre>
+
+<h2 id="questions-and-answers">Questions and Answers</h2>
 <p>While we're at it, why don't we change the way we write the answers too?</p>
 <pre><code class="python">    {'number': 4, 'answer': 'fruit bat'},
 </code></pre>
 
-<p>Try rewriting your code from the last lesson to use this structure.</p>
-<p>If you want to test if a particular key is in the dictionary, you can use <code>in</code>, eg.</p>
-<pre><code class="python">info = {'number': 4, 'answer': 'fruit bat'}
-print('question' in info)  # False
-print('answer' in info)  # True
-</code></pre>
-
+<p>Try rewriting your code from the last lesson to use this structure. It shouldn't be a big change.</p>
 <p>Here's the same list we had before, in the new format:</p>
 <pre><code class="python">data = [
     {'number': 0, 'question': 'Does your animal fly?', 'yes': 1, 'no': 2},
