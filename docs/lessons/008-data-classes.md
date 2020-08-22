@@ -60,7 +60,7 @@ print(q)
 print(isinstance(q, Question))
 ```
 
-## Second pass
+## Drop the numbers
 
 Why are we using numbers to refer to questions and answers?
 Let's just point to them directly, and write our questions out in a tree, like this:
@@ -79,7 +79,7 @@ class Question:
     yes: Union['Question', Answer]
     no: Union['Question', Answer]
 
-q = Question(
+first = Question(
     'Does your animal fly?',
     yes=Question(
         'Is your flying animal a bird?',
@@ -101,10 +101,13 @@ q = Question(
 )
 ```
 
+Note our "data" list has disappeared, and now we just have a question which contains
+all the other questions and answers.
+
 The loop is very straightforward now:
 
 ```python
-    current = q
+    current = first
     while isinstance(current, Question):
         x = input(current.text + ' ')
         if x == 'y':
@@ -112,7 +115,7 @@ The loop is very straightforward now:
         if x == 'n':
             current = current.no
 
-    x = input('Is it a ' + answer + '? ')
+    x = input('Is it a ' + current.text + '? ')
     if x == 'y':
         print('Wow, I guessed it!')
     if x == 'n':

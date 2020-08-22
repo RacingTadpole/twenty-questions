@@ -13,20 +13,13 @@ data = [
 ]
 
 i = 0
-while i >= 0:
-    info = data[i]
-    question = info[1]
+while True:
+    question = data[i][1]
     x = input(question + ' ')
-    if len(info) == 2:
-        # There are no more questions
-        if x == 'y':
-            print('Wow, I guessed it!')
-        if x == 'n':
-            print('You beat me!')
-        i = -1
-    else:
-        # Go to the next question
-        if x == 'y':
-            i = info[2]
-        if x == 'n':
-            i = info[3]
+    if len(data[i]) == 2:
+        break
+    if x == 'y':
+        i = data[i][2]
+    if x == 'n':
+        i = data[i][3]
+print('Thanks for playing')

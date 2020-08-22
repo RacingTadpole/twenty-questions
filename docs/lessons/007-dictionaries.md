@@ -33,21 +33,44 @@ This is called a dictionary. It uses `{}` instead of `[]`.
 You can think of it as a bunch of "keys" (like `question`)
 and "values" (like `'Does your animal fly?`).
 
+## A simpler example
+
+You can see how dictionaries work here:
+
+```python
+    ages = {'Jack': 13, 'Olivia': 15, 'Robert': 48, 'Jess': 47}
+
+    print ('Jack is', ages['Jack'])
+    print()
+
+    for name in ages:
+        print(name, 'is', ages[name])
+
+    print()
+    name = input('Enter a name: ')
+    print(name, 'is', ages[name])
+```
+
+The only trick here is that the `for` loop loops over the _keys_ of the dictionary.
+
+If you want to test if a particular key is in the dictionary, you can use `in`, eg.
+
+```python
+    ages = {'Jack': 13, 'Olivia': 15, 'Robert': 48, 'Jess': 47}
+
+    print('Ella' in info)  # False
+    print('Jack' in info)  # True
+```
+
+## Questions and Answers
+
 While we're at it, why don't we change the way we write the answers too?
 
 ```python
     {'number': 4, 'answer': 'fruit bat'},
 ```
 
-Try rewriting your code from the last lesson to use this structure.
-
-If you want to test if a particular key is in the dictionary, you can use `in`, eg.
-
-```python
-info = {'number': 4, 'answer': 'fruit bat'}
-print('question' in info)  # False
-print('answer' in info)  # True
-```
+Try rewriting your code from the last lesson to use this structure. It shouldn't be a big change.
 
 Here's the same list we had before, in the new format:
 
