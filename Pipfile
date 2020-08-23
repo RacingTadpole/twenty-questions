@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 twenty_questions = {editable = true,path = "."}
+dataclasses-serialization = "*"
 
 [dev-packages]
 "pytest-cov" = "*"

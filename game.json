@@ -1,0 +1,45 @@
+{
+  "text": "Does your animal fly?",
+  "yes": {
+    "text": "Is your flying animal a bird?",
+    "yes": {
+      "text": "Is your bird native to Australia?",
+      "yes": {
+        "name": "kookaburra"
+      },
+      "no": {
+        "name": "blue jay"
+      }
+    },
+    "no": {
+      "text": "Is your animal an insect?",
+      "yes": {
+        "text": "Does your animal flutter?",
+        "yes": {
+          "name": "butterfly"
+        },
+        "no": {
+          "name": "fruitfly"
+        }
+      },
+      "no": {
+        "name": "fruit bat"
+      }
+    }
+  },
+  "no": {
+    "text": "Does your animal live underwater?",
+    "yes": {
+      "text": "Is your animal a mammal?",
+      "yes": {
+        "name": "blue whale"
+      },
+      "no": {
+        "name": "gold fish"
+      }
+    },
+    "no": {
+      "name": "wombat"
+    }
+  }
+}
