@@ -14,10 +14,12 @@ class Question:
     yes: Union['Question', Answer]
     no: Union['Question', Answer]
 
-with open('game.json') as file:
-    questions_as_dict = json.load(file)
-
-q = JSONSerializer.deserialize(Question, questions_as_dict)
+try:
+    with open('game.json') as file:
+        questions_as_dict = json.load(file)
+    q = JSONSerializer.deserialize(Question, questions_as_dict)
+except FileNotFoundError:
+    q = Answer('wombat')
 
 print()
 print()

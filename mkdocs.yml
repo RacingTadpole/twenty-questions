@@ -10,3 +10,5 @@ nav:
         - lessons/006-game-loop-ideas.md
         - lessons/007-dictionaries.md
         - lessons/008-data-classes.md
+        - lessons/009-learning.md
+        - lessons/010-saving.md

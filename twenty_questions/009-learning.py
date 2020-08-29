@@ -44,12 +44,12 @@ while True:
 
     z = input('Is it a ' + current.name + '? ')
     if z == 'y':
-        print('Well that was easy!  🥱')
+        print('Wow, I guessed it!')
     if z == 'n':
         print('You beat me! 😡')
-        new_animal=input ('So what was your animal? ')
+        new_animal = input('So what was your animal? ')
         new_answer = Answer(new_animal)
-        new_question_text=input('What is a question (with answer yes for your animal) that distinguishes a ' + new_animal + ' from a ' + current.name + '? ')
+        new_question_text = input('What is a question (with answer yes for your animal) that distinguishes a ' + new_animal + ' from a ' + current.name + '? ')
         new_question = Question(text=new_question_text, yes=new_answer, no=current)
         if x == 'y':
             previous.yes = new_question

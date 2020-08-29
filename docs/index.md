@@ -22,3 +22,5 @@ Part 1
 - [Lesson 6: Game Loop Ideas](lessons/006-game-loop-ideas.md)
 - [Lesson 7: Dictionaries](lessons/007-dictionaries.md)
 - [Lesson 8: Data classes](lessons/008-data-classes.md)
+- [Lesson 9: Learning new animals](lessons/009-learning.md)
+- [Lesson 10: Saving](lessons/010-saving.md)

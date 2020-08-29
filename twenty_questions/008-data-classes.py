@@ -40,8 +40,8 @@ while isinstance(current, Question):
     if x == 'n':
         current = current.no
 
-x = input('Is it a ' + current.text + '? ')
-if x == 'y':
+z = input('Is it a ' + current.text + '? ')
+if z == 'y':
     print('Wow, I guessed it!')
-if x == 'n':
+if z == 'n':
     print('You beat me!')
