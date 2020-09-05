@@ -71,6 +71,14 @@
 <li>
     <a href="./" class="dropdown-item active">Lesson 8: Data classes</a>
 </li>
+                                    
+<li>
+    <a href="../009-learning/" class="dropdown-item">Lesson 9: Learning new animals</a>
+</li>
+                                    
+<li>
+    <a href="../010-saving/" class="dropdown-item">Lesson 10: Saving stuff</a>
+</li>
                                 </ul>
                             </li>
                         </ul>
@@ -87,7 +95,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../009-learning/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -116,6 +124,18 @@
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#drop-the-numbers" class="nav-link">Drop the numbers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#help" class="nav-link">Help!</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#or-drop-the-numbers-but-keep-the-dictionaries" class="nav-link">Or - drop the numbers but keep the dictionaries</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#is-it-a-good-idea-to-nest-the-questions" class="nav-link">Is it a good idea to nest the questions?</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -226,14 +246,80 @@ all the other questions and answers.</p>
         if x == 'n':
             current = current.no
 
-    x = input('Is it a ' + current.text + '? ')
+    z = input('Is it a ' + current.text + '? ')
+    if z == 'y':
+        print('Wow, I guessed it!')
+    if z == 'n':
+        print('You beat me!')
+</code></pre>
+
+<p>Do you think this is an improvement?</p>
+<h2 id="help">Help!</h2>
+<p>There are quite a few new things in there
+(like the <code>import</code>s and the <code>@dataclass</code> thing, not to mention <code>class</code>) which you might
+prefer to understand before you use them. Here's a quick intro to each, which can also ignore.</p>
+<h3 id="import">import</h3>
+<p>One nice thing about python is there are a few basic built-in commands (like <code>print</code>, <code>input</code>, <code>if</code> etc),
+and <em>everything else</em> you need to "import" to use. I think that's nice because it means if you come
+across a command you've never seen before, you can go to the top of the file and see where it was
+imported from, and so where it comes from. And then you can search for it.</p>
+<p>Some packages (like the ones here, <code>dataclasses</code> and <code>typing</code>) are built-in to python.
+But you can write your own and other people can import your code to use too.</p>
+<p>We'll get into that more later.</p>
+<h3 id="class-and-dataclass">class and "@dataclass"</h3>
+<p>Python's built-in <code>class</code>es give you lots of flexibility to define "objects" that make sense for your program.</p>
+<p>But there's a trend among programmers these days to restrict these objects to just the bare essentials,
+which is what the <code>@dataclass</code> line does. It means the object only has the properties you list on it,
+and they behave in the obvious way. In fact <code>@dataclass(frozen=true)</code> is even better, it means
+you cannot change the object once you've created it (it's "frozen") - and that makes it easier to write
+code that works.</p>
+<h2 id="or-drop-the-numbers-but-keep-the-dictionaries">Or - drop the numbers but keep the dictionaries</h2>
+<p>If the <code>Question</code> and <code>Answer</code> classes seem confusing, don't worry. It's perfectly fine to stick with
+dictionaries. You can drop the numbers with them just the same way, and "nest" dictionaries, like this:</p>
+<pre><code class="python">first = {
+    'text': 'Does your animal fly?',
+    'yes': {
+        'text': 'Is your flying animal a bird?',
+        'yes': {
+            'text': 'Is your bird native to Australia?',
+            'yes': 'kookaburra',
+            'no': 'blue jay',
+        },
+        'no': 'fruit bat',
+    },
+    'no': {
+        'text': 'Does your animal live underwater?',
+        'yes': {
+            'text': 'Is your animal a mammal?',
+            'yes': 'blue whale',
+            'no': 'gold fish',
+        },
+        'no': 'wombat',
+    }
+}
+</code></pre>
+
+<p>Here I've chosen to write the questions as dictionaries (with <code>text</code>, <code>yes</code> and <code>no</code> fields),
+and the answers just as strings.</p>
+<p>The loop could be:</p>
+<pre><code class="python">    current = first
+    while isinstance(current, dict):
+        x = input(current['text'] + ' ')
+        if x == 'y':
+            current = current['yes']
+        if x == 'n':
+            current = current['no']
+
+    x = input('Is it a ' + current + '? ')
     if x == 'y':
         print('Wow, I guessed it!')
     if x == 'n':
         print('You beat me!')
 </code></pre>
 
-<p>Do you think this is an improvement?</p></div>
+<h2 id="is-it-a-good-idea-to-nest-the-questions">Is it a good idea to nest the questions?</h2>
+<p>Nesting the questions in a big "tree" like this is quite neat, and it reflects the way the game works.</p>
+<p>There are some downsides to doing it though, which we'll hit soon.</p></div>
             </div>
         </div>
 

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Lesson 3: More about Variables - Learn Python with A Twenty Questions Game</title>
+        <title>Lesson 10: Saving stuff - Learn Python with A Twenty Questions Game</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -49,7 +49,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Lesson 3: More about Variables</a>
+    <a href="../003-variables/" class="dropdown-item">Lesson 3: More about Variables</a>
 </li>
                                     
 <li>
@@ -77,7 +77,7 @@
 </li>
                                     
 <li>
-    <a href="../010-saving/" class="dropdown-item">Lesson 10: Saving stuff</a>
+    <a href="./" class="dropdown-item active">Lesson 10: Saving stuff</a>
 </li>
                                 </ul>
                             </li>
@@ -90,12 +90,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../002-if/" class="nav-link">
+                                <a rel="prev" href="../009-learning/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../004-for-loops/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -117,21 +117,17 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#lesson-3-more-about-variables" class="nav-link">Lesson 3: More about Variables</a>
+            <li class="nav-item" data-level="1"><a href="#lesson-10-saving-stuff" class="nav-link">Lesson 10: Saving stuff</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#string-variables" class="nav-link">String variables</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#numeric-variables" class="nav-link">Numeric variables</a>
+            <li class="nav-item" data-level="2"><a href="#json" class="nav-link">json</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#truefalse-variables" class="nav-link">True/False variables</a>
+            <li class="nav-item" data-level="2"><a href="#json-from-dataclasses" class="nav-link">json from dataclasses</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#lists" class="nav-link">Lists</a>
+            <li class="nav-item" data-level="2"><a href="#error-handling" class="nav-link">Error handling</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -142,72 +138,84 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="lesson-3-more-about-variables">Lesson 3: More about Variables</h1>
-<p>Let's learn one more thing before we get to loops.</p>
-<p>Remember we had</p>
-<pre><code class="python">q = 'What is your name? '
-x = input(q)
-print('Hello ' + x + '!')
+<h1 id="lesson-10-saving-stuff">Lesson 10: Saving stuff</h1>
+<p>Saving text files is easy in python - if you want to put "goodbye" into a new file called "hello.txt",
+you can just do:</p>
+<pre><code class="python">with open('hello.txt', 'w') as file:
+    file.write('goodbye')
 </code></pre>
 
-<p>Programmers call <code>q</code> and <code>x</code> "variables", because they can vary.</p>
-<h2 id="string-variables">String variables</h2>
-<p>These particular variables are "strings" - they contain text.
-(Remember programmers call text "strings" for some reason.)</p>
-<p>Variables can be other types of things too.</p>
-<h2 id="numeric-variables">Numeric variables</h2>
-<p>In order to do maths, you might expect numbers, and these are called "integers" (for whole numbers) or "floats" (for decimal numbers - the word "float" was picked originally because the computer stores them in a way that lets the decimal place "float" a long way to the left or right).</p>
-<pre><code class="python">n = 10
-print(n)
-print(n + 5)
-print(n / 2)
-print(n * 3)
-
-k = n * 3 + 1
-print(k)
-
-x = k / 10
+<p>and then to read it in again:</p>
+<pre><code class="python">with open('hello.txt', 'r') as file:
+    x = file.read()
 print(x)
 </code></pre>
 
-<p>Etc.</p>
-<p>You can ask if a variable is a string (<code>str</code>), an integer (<code>int</code>) or a float (<code>float</code>) using <code>isinstance</code> like this:</p>
-<pre><code class="python">n = 10
-print(isinstance(n, int))
-print(isinstance(n, str))
+<p>The <code>'w'</code> is for "write", and <code>'r'</code> is for "read".</p>
+<p>(If you're wondering about the <code>with</code>...<code>as</code>, putting it in an indented block like this means the computer
+knows when you're done with the file and it can be closed safely. It also means if there's an error
+and the program never finishes properly, the computer still knows to close the file properly.)</p>
+<p>So the harder question is, what format do we want to write our questions out in?</p>
+<p>Luckily, there is a standard answer: "json".</p>
+<h2 id="json">json</h2>
+<p>"Json" is basically just the dictionary format you're already used to, and python makes it easy to write
+out dictionaries in this format. Eg.</p>
+<pre><code class="python">import json
+
+d = {'name': 'Bert', 'mother': 'Amanda', 'father': 'Henry', 'children': 3}
+with open('my.json', 'w') as file:
+    json.dump(d, file)
 </code></pre>
 
-<p>which returns <code>True</code> or <code>False</code>.
-In fact these responses are another type of variable, which can only be
-True or False. Such variables are named "boolean" (<code>bool</code>) after George Boole, an 1800s mathematician, for some reason, although the idea of true and false must be older than that.</p>
-<h2 id="truefalse-variables">True/False variables</h2>
-<pre><code class="python">a = True
-print(a)
-
-x = 'yes'
-print(x == 'yes')
+<p>creates a file <code>my.json</code> containing:</p>
+<pre><code class="json">{&quot;name&quot;: &quot;Bert&quot;, &quot;mother&quot;: &quot;Amanda&quot;, &quot;father&quot;: &quot;Henry&quot;, &quot;children&quot;: 3}
 </code></pre>
 
-<p>Notice the double equals sign gives us a True or False too.
-If you think about it, that makes sense for using with "if", right?
-If something is true, do something; if it's false, do something else.</p>
-<h2 id="lists">Lists</h2>
-<p>Let's talk about one more, fancier type of variable - a list, eg.</p>
-<pre><code class="python">x = [1, 3, 4, 7, 'hello']
-print(x)
-print(x[1])
-print(len(x))
+<p>The only difference is that "json" format always uses double-quotes,
+whereas python can use either single or double quotes.</p>
+<p>You can read a <code>json</code> file in with <code>json.load</code>:</p>
+<pre><code class="python">with open('my.json', 'r') as file:
+    d = json.load(file)
+print(d['mother'])
 </code></pre>
 
-<p>This will be handy in our next lesson, on loops.</p>
-<p>Notice how we got an element out of the list with <code>x[1]</code> - was it the one you expected?
-(Python starts counting at 0!) - and the length of the list with <code>len(x)</code>
-(the length is still what you'd expect, fortunately).</p>
-<p>Do you think you can put a list inside a list? Try it!</p>
-<pre><code class="python">x = [[1, 'hello'], [2, 'goodbye'], [3, 'the end']]
-print(x)
-print(x[2])
-print(x[2][1])
+<h2 id="json-from-dataclasses">json from dataclasses</h2>
+<p>As we saw above, python has a built-in way to turn dictionaries into json files and vice versa.</p>
+<p>There's an open-source package online that makes this work for data classes too - it converts dictionaries
+to dataclasses and vice versa.</p>
+<p>So by stringing the two together, you can convert between data classes into json files.</p>
+<pre><code class="python">from dataclasses_serialization.json import JSONSerializer
+
+# To read a json file and turn it into a Question dataclass
+with open('game.json') as file:
+    d = json.load(file)
+q = JSONSerializer.deserialize(Question, d)
+
+# To write dataclass out as a json file
+d = JSONSerializer.serialize(q)
+with open('game.json', 'w') as file:
+    json.dump(d, file, indent=2)
+</code></pre>
+
+<p>The <code>indent=2</code> just makes big files easier to read by indenting nested dictionaries by 2 spaces.</p>
+<p>(The name "serialize" is programmer-speak for converting a data into a linear, 1-dimensional form
+so it can be saved in a file, or sent over the web. "Deserialize" is the reverse.)</p>
+<h2 id="error-handling">Error handling</h2>
+<p>Your game will be much more fun when you read the questions in like this at the start of the game,
+and save them at the end.</p>
+<p>But the very first time you run this code, <code>game.json</code> won't exist yet!
+In fact the file-reading code above will give you this error:</p>
+<pre><code>FileNotFoundError: [Errno 2] No such file or directory: 'game.json'
+</code></pre>
+
+<p>Python provides a way to "catch" these errors and handle them better.</p>
+<p>In our case, we could start of with a default answer, like this:</p>
+<pre><code class="python">try:
+    with open('game.json') as file:
+        d = json.load(file)
+    q = JSONSerializer.deserialize(Question, d)
+except FileNotFoundError:
+    q = Answer('wombat')
 </code></pre></div>
             </div>
         </div>
